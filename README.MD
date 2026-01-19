@@ -92,5 +92,15 @@
     python src/main.py
     ```
 
+# Weather Backend API
+
+## Run
+pip install -r requirements.txt
+uvicorn main:app --reload
+
+## Endpoints
+GET /weather?city=Hanoi
+GET /forecast?city=Hanoi
+GET /cities?q=Ha
 ---
 *Dự án được tạo ra với mục đích học tập và thực hành lập trình bất đồng bộ trong Python.*
