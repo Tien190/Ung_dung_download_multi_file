@@ -1,0 +1,15 @@
+$dirs = @(
+  'backend\src\api',
+  'backend\src\services',
+  'backend\src\models',
+  'backend\src\sockets',
+  'backend\src\storage\downloads',
+  'web-ui\public',
+  'web-ui\src',
+  'docs',
+  '.github\workflows'
+)
+$dirs | ForEach-Object {
+  New-Item -ItemType Directory -Force -Path $_ | Out-Null
+  Set-Content -Path (Join-Path $_ '.gitignore') -Value '# keep directory'
+}
