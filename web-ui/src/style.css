@@ -36,3 +36,148 @@ footer { font-size: 13px; margin-top: 16px;}
   main { padding: 10px; }
   table, thead, tbody, th, td, tr { font-size: 12px; }
 }
+/* ===== Gom nút thao tác cho gọn ===== */
+
+/* Cột điều khiển */
+td:nth-child(5) {
+  min-width: 140px;
+}
+
+/* Bọc các nút điều khiển theo chiều dọc */
+td:nth-child(5) button {
+  display: block;
+  width: 100%;
+  margin-bottom: 6px;
+  font-size: 13px;
+  padding: 6px 0;
+}
+
+/* Nút Stop nổi bật hơn */
+td:nth-child(5) button.warn {
+  margin-top: 4px;
+}
+
+/* Cột Xóa */
+td:nth-child(7) {
+  text-align: center;
+  min-width: 80px;
+}
+
+td:nth-child(7) button {
+  width: 100%;
+  font-size: 13px;
+  padding: 6px 0;
+}
+
+/* Mobile: thu gọn hơn nữa */
+@media (max-width: 600px) {
+  td:nth-child(5),
+  td:nth-child(7) {
+    min-width: unset;
+  }
+
+  td:nth-child(5) button,
+  td:nth-child(7) button {
+    font-size: 12px;
+    padding: 5px 0;
+  }
+}
+th:nth-child(3),
+td:nth-child(3) {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Thanh progress căn giữa */
+td:nth-child(3) .progress-wrap {
+  margin: 0 auto;
+}
+
+/* Cột Tùy chỉnh (cột thứ 5) */
+th:nth-child(5),
+td:nth-child(5) {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Nút trong cột Tùy chỉnh căn giữa */
+td:nth-child(5) button {
+  margin-left: auto;
+  margin-right: auto;
+}
+/* ===== Căn giữa chữ cho các cột: Tên file, Kích thước, Xóa ===== */
+
+
+/* Kích thước (cột 4) */
+th:nth-child(4),
+td:nth-child(4) {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Xóa (cột 7) */
+th:nth-child(7),
+td:nth-child(7) {
+  text-align: center;
+  vertical-align: middle;
+}
+/* ===== HEADER HIỆU ỨNG HÌNH ẢNH + CHUYỂN ĐỘNG ===== */
+.main-header {
+  position: relative;
+  background: 
+    linear-gradient(120deg, rgba(10,34,89,.85), rgba(35,181,116,.7)),
+    url("https://images.unsplash.com/photo-1518770660439-4636190af475");
+  background-size: 120% 120%;
+  background-position: center;
+  animation: headerMove 12s ease-in-out infinite alternate;
+  overflow: hidden;
+}
+
+@keyframes headerMove {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.header-overlay {
+  padding: 26px 16px;
+  text-align: center;
+  backdrop-filter: blur(2px);
+}
+
+.header-overlay h1 {
+  font-size: 34px;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.header-overlay p {
+  opacity: 0.9;
+  font-size: 15px;
+}
+
+/* ===== FOOTER GRADIENT CHUYỂN ĐỘNG ===== */
+.main-footer {
+  background: linear-gradient(
+    270deg,
+    #0a2259,
+    #23b574,
+    #0a2259
+  );
+  background-size: 400% 400%;
+  animation: footerFlow 10s ease infinite;
+  color: #fff;
+}
+
+@keyframes footerFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Footer text */
+.main-footer small {
+  display: block;
+  padding: 14px 0;
+  font-size: 13px;
+  opacity: 0.9;
+}
