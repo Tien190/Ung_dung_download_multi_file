@@ -7,6 +7,7 @@
   const msgArea = document.getElementById("msgArea");
   const tasksBody = document.getElementById("tasksBody");
   const localTasks = new Map();
+  const deletedTaskIds = new Set();
 
   function showMsg(msg, type="error") {
     msgArea.innerHTML = `<b>${msg}</b>`;
@@ -48,6 +49,9 @@
 
   async function deleteTask(task_id) {
     if (!confirm("Xóa task này?")) return;
+      deletedTaskIds.add(task_id);
+      localTasks.delete(task_id);
+      renderTasks(Object.fromEntries(localTasks));
     try {
       const res = await fetch(`${BASE_URL}/api/delete/${encodeURIComponent(task_id)}`, {
         method: "DELETE",
@@ -71,6 +75,7 @@
     }
     tasksBody.innerHTML = "";
     arr.forEach((t) => {
+      if (deletedTaskIds.has(t.task_id)) return;
       localTasks.set(t.task_id, t);
       const tr = document.createElement("tr");
       const tdName = document.createElement("td");
